@@ -1,0 +1,30 @@
+## Business Recommendations
+
+## Business Recommendations
+
+Based on the churn prediction model and feature importance analysis, the following actionable insights and recommendations are proposed:
+
+### 1. Target Month-to-Month Contract Customers
+Customers on month-to-month contracts show significantly higher churn risk compared to long-term contract customers.  
+**Recommendation:**  
+Offer incentives such as discounted upgrades to annual or two-year contracts, especially for customers within their first 6–12 months.
+
+### 2. Focus on Early-Tenure Customers
+Customers with shorter tenure are more likely to churn, indicating dissatisfaction early in the customer lifecycle.  
+**Recommendation:**  
+Implement early engagement programs, including onboarding support, personalized communication, and proactive service check-ins during the first few months.
+
+### 3. Address High Monthly Charge Sensitivity
+Higher monthly charges are associated with increased churn probability.  
+**Recommendation:**  
+Provide targeted retention offers or bundled services to high-paying customers to improve perceived value and reduce price-related churn.
+
+### 4. Improve Value-Added Service Adoption
+Lack of premium services such as technical support and online security correlates with higher churn risk.  
+**Recommendation:**  
+Promote value-added services through trials or bundled discounts to increase customer stickiness and satisfaction.
+
+### 5. Prioritize Recall Over Precision in Retention Campaigns
+The selected Logistic Regression model prioritizes recall, ensuring more churn-prone customers are identified even at the cost of some false positives.  
+**Recommendation:**  
+Retention teams should accept limited outreach inefficiency to avoid missing high-risk churn customers, as the cost of churn outweighs outreach costs.

@@ -2,29 +2,35 @@
 
 ## Business Recommendations
 
-Based on the churn prediction model and feature importance analysis, the following actionable insights and recommendations are proposed:
+Based on the final churn prediction models and feature importance analysis, the following actionable recommendations are proposed for ConnectTel’s retention strategy:
 
 ### 1. Target Month-to-Month Contract Customers
-Customers on month-to-month contracts show significantly higher churn risk compared to long-term contract customers.  
+Customers on month-to-month contracts consistently showed the highest churn risk across all models.
 **Recommendation:**  
-Offer incentives such as discounted upgrades to annual or two-year contracts, especially for customers within their first 6–12 months.
+Prioritize these customers for retention campaigns by offering incentives such as discounted upgrades to annual or two-year contracts, especially within the first year of service.
 
 ### 2. Focus on Early-Tenure Customers
-Customers with shorter tenure are more likely to churn, indicating dissatisfaction early in the customer lifecycle.  
+Shorter customer tenure was one of the strongest predictors of churn.
 **Recommendation:**  
-Implement early engagement programs, including onboarding support, personalized communication, and proactive service check-ins during the first few months.
+Implement early-stage engagement programs, including proactive onboarding support, service quality check-ins, and personalized communication during the first 3–6 months.
 
-### 3. Address High Monthly Charge Sensitivity
-Higher monthly charges are associated with increased churn probability.  
+### 3. Address High Cost-to-Tenure Imbalance
+Customers with high charges relative to their tenure were significantly more likely to churn.
 **Recommendation:**  
-Provide targeted retention offers or bundled services to high-paying customers to improve perceived value and reduce price-related churn.
+Introduce targeted pricing adjustments, bundled plans, or loyalty credits for high-paying customers early in their lifecycle to improve perceived value.
 
-### 4. Improve Value-Added Service Adoption
-Lack of premium services such as technical support and online security correlates with higher churn risk.  
+### 4. Increase Adoption of Value-Added Services
+Customers without premium support, security, or bundled services showed higher churn probability.
 **Recommendation:**  
-Promote value-added services through trials or bundled discounts to increase customer stickiness and satisfaction.
+Promote value-added services such as technical support and online security through limited-time trials or bundled discounts to increase customer stickiness.
 
-### 5. Prioritize Recall Over Precision in Retention Campaigns
-The selected Logistic Regression model prioritizes recall, ensuring more churn-prone customers are identified even at the cost of some false positives.  
+### 5. Prioritize Recall in Retention Strategy
+Model evaluation showed that missing churn-prone customers (false negatives) has a higher business cost than contacting some non-churning customers.
 **Recommendation:**  
-Retention teams should accept limited outreach inefficiency to avoid missing high-risk churn customers, as the cost of churn outweighs outreach costs.
+Retention teams should prioritize recall over precision when using the churn model, accepting limited outreach inefficiency to minimize lost revenue from undetected churn.
+
+### 6. Deploy an Interpretable Model for Business Trust
+Although gradient boosting models achieved marginally higher performance, Logistic Regression provided comparable AUC-ROC with greater interpretability.
+**Recommendation:**  
+Deploy Logistic Regression in production to ensure transparency, easier monitoring, and clearer communication of churn drivers to business stakeholders.
+

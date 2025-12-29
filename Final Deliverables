@@ -1,0 +1,66 @@
+## Problem Overview
+
+ConnectTel, a major telecommunications provider, experiences significant revenue loss due to customer churn, where customers discontinue services and switch to competitors.  
+
+The objective of this project is to build a production-ready machine learning system that predicts whether a customer is likely to churn in the next month. By identifying high-risk customers early, the retention team can intervene with targeted offers and proactive engagement strategies to reduce churn and protect revenue.
+
+This problem is formulated as a binary classification task, where the target variable indicates whether a customer churned.
+
+## Exploratory Data Analysis (EDA)
+
+Exploratory Data Analysis was conducted to understand customer behavior patterns and identify factors associated with churn. The analysis focused on customer tenure, contract type, and pricing characteristics, as these variables are critical in telecom retention.
+
+### Key EDA Insights
+
+- The dataset is imbalanced, with approximately 26% of customers having churned.
+- Customers on month-to-month contracts exhibit significantly higher churn rates compared to customers on long-term contracts.
+- Short-tenure customers are more likely to churn, indicating early lifecycle dissatisfaction.
+- Higher monthly charges are associated with increased churn risk, suggesting price sensitivity.
+
+These insights guided feature engineering and model selection decisions.
+
+## Feature Engineering
+
+Several features were engineered to better capture customer commitment and pricing pressure:
+
+- **HasDependents:** Indicates whether a customer has any dependents, representing household stability.
+- **ChargesPerTenure:** Ratio of total charges to tenure, capturing cost pressure early in the customer lifecycle.
+- **IsMonthToMonth:** Binary indicator for customers on month-to-month contracts.
+
+Categorical variables were one-hot encoded, and numerical features were scaled using standardization to support models sensitive to feature scale.
+
+## Model Training and Evaluation
+
+Three models were trained and evaluated:
+
+1. **Logistic Regression** – Baseline, interpretable model
+2. **Random Forest** – Ensemble model capturing non-linear relationships
+3. **LightGBM** – Gradient boosting model optimized for tabular data
+
+Stratified train-test splitting and cross-validation were used to ensure robust evaluation. Due to class imbalance, AUC-ROC was selected as the primary performance metric.
+
+### Model Performance Summary
+
+- Logistic Regression achieved an AUC-ROC of approximately 0.891.
+- Random Forest achieved an AUC-ROC of approximately 0.884.
+- LightGBM achieved the highest AUC-ROC at approximately 0.893.
+
+Although LightGBM marginally outperformed Logistic Regression, the performance difference was minimal.
+
+## Confusion Matrix and ROC Analysis
+
+Confusion matrices were analyzed to understand the trade-off between false positives and false negatives. In the context of churn prediction, false negatives (missed churners) are more costly than false positives.
+
+ROC curves were plotted for all models to visualize their ability to distinguish between churned and non-churned customers across decision thresholds. Logistic Regression demonstrated competitive discrimination performance while maintaining interpretability.
+
+## Feature Importance and Business Recommendations
+
+Feature importance analysis revealed the most influential churn drivers to be:
+
+- Contract type (month-to-month contracts)
+- Customer tenure
+- Monthly charges and charges relative to tenure
+- Adoption of value-added services
+
+These factors consistently appeared across models and SHAP explanations.
+
